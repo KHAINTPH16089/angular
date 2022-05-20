@@ -1,17 +1,63 @@
-<p>{{userForm.valid | json}}</p>
-<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
-    <div class="form-group" >
-        <label for="">Tên user</label>
-        <input type="text" class="form-control" name="name" ngModel required minlength="6" #name="ngModel">
-        <app-form-validate [field]="name" key="Tên"></app-form-validate>
+<div class="container">
+    <form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="form-group" >
+            <label for="">Tên user</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="inputValue.name" required minlength="6" #name="ngModel">
+            <app-form-validate [field]="name" key="Tên"></app-form-validate>
+            
+        </div>
+        <div class="form-group">
+            <label for="">Tuổi user</label>
+            <input type="number" class="form-control" name="age" [(ngModel)]="inputValue.age" required min="1" max="100" #age="ngModel">
+            <app-form-validate [field]="age" key="Tuổi"></app-form-validate>
+        </div>
+        <div class="form-group">
+            <label for="">email user</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="inputValue.email" required #email="ngModel">
+            <app-form-validate [field]="email" key="Email"></app-form-validate>
+        </div>
+        <div class="form-group">
+            <label for="">phone user</label>
+            <input type="text" class="form-control" name="phone" [(ngModel)]="inputValue.phone" required #phone="ngModel">
+            <app-form-validate [field]="phone" key="phone"></app-form-validate>
+        </div>
+        <div class="form-group">
+            <label for="">avatar user</label>
+            <input type="text" class="form-control" name="avatar" [(ngModel)]="inputValue.avatar" required #avatar="ngModel">
+            <app-form-validate [field]="avatar" key="avatar"></app-form-validate>
+        </div><br>
+        <div>
+            <button class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+        </div>
+
         
-    </div>
-    <div class="form-group">
-        <label for="">Tuổi user</label>
-        <input type="number" class="form-control" name="age" ngModel required min="1" max="100" #age="ngModel">
-        
-    </div><br>
+    </form>
     <div>
-        <button class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Tuổi</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">SĐT</th>
+                    <th scope="col">avatar</th>
+                    <th colspan="2">chỉnh sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td> <img src="{{user.avatar}}" width="100" alt=""></td>
+                    <td><button class="btn btn-primary" (click)="edit(user.id)">Sửa</button></td>
+                    <td><button class="btn btn-primary" (click)="remove(user.id)">Xóa</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
     </div>
-</form>
+</div>
