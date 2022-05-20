@@ -1,0 +1,17 @@
+<p>{{userForm.valid | json}}</p>
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div class="form-group" >
+        <label for="">Tên user</label>
+        <input type="text" class="form-control" name="name" ngModel required minlength="6" #name="ngModel">
+        <app-form-validate [field]="name" key="Tên"></app-form-validate>
+        
+    </div>
+    <div class="form-group">
+        <label for="">Tuổi user</label>
+        <input type="number" class="form-control" name="age" ngModel required min="1" max="100" #age="ngModel">
+        
+    </div><br>
+    <div>
+        <button class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+    </div>
+</form>

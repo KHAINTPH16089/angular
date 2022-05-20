@@ -10,6 +10,10 @@ import { TableGenderComponent } from './table/table-gender/table-gender.componen
 import { TableStatusComponent } from './table/table-status/table-status.component';
 import { TableAvatarComponent } from './table/table-avatar/table-avatar.component';
 
+import { FormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
+import { FormValidateComponent } from './components/form-validate/form-validate.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +21,15 @@ import { TableAvatarComponent } from './table/table-avatar/table-avatar.componen
     TableNameComponent,
     TableGenderComponent,
     TableStatusComponent,
-    TableAvatarComponent
+    TableAvatarComponent,
+    FormComponent,
+    FormValidateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

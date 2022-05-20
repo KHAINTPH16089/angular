@@ -13,5 +13,13 @@ export class TableStatusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  clickSpan(){
+    console.log("đã click");
+    if(this.status == 0){
+      this.status = 1
+    } else{
+      this.status = 0
+    }
+    
+  }
 }

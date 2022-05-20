@@ -41,4 +41,59 @@ export class AppComponent {
       status: 1
     },
   ]
+  poly = "";
+  clickPoly(){
+    this.poly = "poly"
+  }
+  showStatus = true;
+  button(){
+    if(this.showStatus == true){
+      this.showStatus = false
+    } else {
+      this.showStatus = true
+    }
+  }
+
+  inputValue = "";
+  input(e: any){
+    this.inputValue = e.target.value
+  }
+
+  inputValues = {
+    name: '',
+    age: '',
+    gender: '0',
+    avatar: '',
+    status: '1'
+  };
+  
+
+  // onInputName(e: any, key: string){
+  //   this.inputValues.name = e.target.value;
+  // }
+  // onInputAge(e: any, info: string){
+  //   this.inputValues.age = e.target.value;
+  // }
+  onInput(e: any, key: 'name'|'age'|'avatar'|'gender'|"status"){
+    this.inputValues[key] = e.target.value;
+  }
+  onSubmit(){
+    this.SVs.push(
+      {
+        ...this.inputValues,
+        age: +this.inputValues.age,
+        gender: +this.inputValues.gender,
+        status: +this.inputValues.status,
+        id: this.SVs.length + 1
+      }
+    )
+    this.inputValues = {
+      name: '',
+      age: '',
+      gender: '0',
+      avatar: '',
+      status: '1'
+    };
+  }
+  
 }

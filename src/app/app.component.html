@@ -1,1 +1,47 @@
-<app-table [users]="SVs"></app-table>
+<div>
+    <div>
+        <h1>angular form</h1>
+    </div>
+    <div>
+        <app-form></app-form>
+    </div>
+</div>
+<h2 (click)="clickPoly()" >DS giáo viên {{poly}}</h2>
+<button (click)="button()" class="btn btn-primary">{{showStatus ? "ẩn" : "hiện"}} danh sách</button>
+<form action="">
+    <input type="text" (keydown)="input($event)">
+    <p>{{inputValue}}</p>
+</form>
+<div>
+    <p>đăng kí thông tin giảng viên</p>
+    <form action="">
+        <div class="form-groud">
+            <label for="">tên GV</label>
+            <input type="text" class="form-control" value="{{inputValues.name}}" (input)="onInput($event, 'name')">
+        </div>
+        <div class="form-groud">
+            <label for="">tuổi GV</label>
+            <input type="text" class="form-control" value="{{inputValues.age}}" (input)="onInput($event, 'age')">
+        </div>
+        <div class="form-groud">
+            <label for="">giới tính GV</label>
+            <input type="radio" class="form-check" value="0" [checked]="inputValues.gender === '0'" name="gender" (input)="onInput($event, 'gender')">nữ
+            <input type="radio" class="form-check" value="1" [checked]="inputValues.gender === '1'" name="gender" (input)="onInput($event, 'gender')">nam
+        </div>
+        <div class="form-groud">
+            <label for="">avatar GV</label>
+            <input type="text" class="form-control" value="{{inputValues.avatar}}" (input)="onInput($event, 'avatar')">
+        </div>
+        <div class="form-groud">
+            <label for="">status GV</label>
+            <select name="" class="form-control" id="" (input)="onInput($event, 'status')">
+                <option value="0">dã nghỉ</option>
+                <option value="1">đang làm việc</option>
+            </select>
+        </div><br/>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">thêm vào bảng</button>
+    </form>
+</div>
+<div  *ngIf="showStatus == true">
+    <app-table [users]="SVs"></app-table>
+</div>
