@@ -2,3 +2,6 @@
 <span *ngIf="field.dirty && field.errors?.['minlength']" class="text-danger">{{key}} phải nhập nhiều hơn {{field.errors?.['minlength'].requiredLength }} kí tự</span>
 <span *ngIf="field.dirty && field.errors?.['min']" class="text-danger">{{key}} tuổi tối thiểu là {{field.errors?.['min'].min}}</span>
 <span *ngIf="field.dirty && field.errors?.['max']" class="text-danger">{{key}} tuổi tối thiểu là {{field.errors?.['max'].max}}</span>
+
+<!-- custom validate -->
+<span *ngIf="field.dirty && field.errors?.['hasProductError']" class="text-danger">{{key}} phải chứa từ 'product' </span>

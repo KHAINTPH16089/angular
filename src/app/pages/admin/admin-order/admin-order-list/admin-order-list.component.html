@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stt</th>
+            <th>tên</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>address</th>
+            <th>giá đơn hàng</th>
+            <th>status</th>
+            <th colspan="2">chỉnh sửa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order._id}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.email}}</td>
+            <td>{{order.phone}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.total}}</td>
+            <td>
+                <select name="" id="" value="alo alo" (change)="statusUpdate(order._id ,$event)">
+                    <ng-container *ngFor="let statu of status">
+                        <option value="{{statu._id}}"  *ngIf="order.status == statu._id" selected disabled hidden>{{statu.name}} </option>
+                    </ng-container>
+                    <option value="{{statu._id}}" *ngFor="let statu of status">{{statu.name}}</option>
+                </select>
+                <!-- <button class="btn btn-primary" *ngIf="order.status === 1" (click)="onUpdateStatus(order._id, 0)">ON</button>
+                <button class="btn btn-primary" *ngIf="order.status === 0" (click)="onUpdateStatus(order._id, 1)">OFF</button> -->
+            </td>
+            <!-- <td><button class="btn btn-primary" (click)="onDelete(order._id)">xóa</button></td> -->
+            <td>  <a [routerLink]="['/admin','order','detail', order._id]"><button class="btn btn-primary">details</button></a> </td>
+        </tr>
+    </tbody>
+</table>

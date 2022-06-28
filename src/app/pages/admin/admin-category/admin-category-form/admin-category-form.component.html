@@ -1,0 +1,10 @@
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <app-form-validate [field]="categoryForm.get('name')" key="Tên sản phẩm"></app-form-validate>
+    </div>
+    <div>
+        <button class="btn btn-primary" [disabled]="!categoryForm.valid">Submit</button>
+    </div>
+</form>

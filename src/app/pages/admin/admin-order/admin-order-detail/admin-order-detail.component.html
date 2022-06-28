@@ -1,0 +1,25 @@
+<a routerLink="/admin/order"><button class="btn btn-primary">trở về</button></a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stt</th>
+            <th>name Book</th>
+            <th>price</th>
+            <th>image</th>
+            <th>mô tả</th>
+            <th>số lượng</th>
+            <th>tổng giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order._id}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.price}}</td>
+            <td> <img style="width: 100px;" src="{{order.image}}" alt=""></td>
+            <td>{{order.desc}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.price * order.quantity}}</td>
+        </tr>
+    </tbody>
+</table>

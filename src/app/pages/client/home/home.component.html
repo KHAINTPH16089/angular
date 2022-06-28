@@ -1,0 +1,158 @@
+<section class="hero">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3">
+              <div class="hero__categories">
+                  <div class="hero__categories__all">
+                      <i class="fa fa-bars"></i>
+                      <span>Danh mục</span>
+                  </div>
+                  <ul>
+                      <li *ngFor="let category of categories"><a href="#">{{category.name}}</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-9">
+              <div class="hero__search">
+                  <div class="hero__search__form">
+                      <form action="#">
+                          <div class="hero__search__categories">
+                              All Categories
+                              <span class="arrow_carrot-down"></span>
+                          </div>
+                          <input type="text" placeholder="What do yo u need?">
+                          <button type="submit" class="site-btn">Tìm kiếm</button>
+                      </form>
+                  </div>
+                  <div class="hero__search__phone">
+                      <div class="hero__search__phone__icon">
+                          <i class="fa fa-phone"></i>
+                      </div>
+                      <div class="hero__search__phone__text">
+                          <h5>+65 11.188.888</h5>
+                          <span>Hỗ trợ 24/7</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="hero__item set-bg" style="background-image: url(https://th.bing.com/th/id/R.d04c0bbf3a4ff23fdb4678a2677d1596?rik=tTaHkBfc6rK2UQ&pid=ImgRaw&r=0);">
+                  <div class="hero__text">
+                      <span>SÁCH NẤU ĂN</span>
+                      <h2>Đầy đủ mọi  <br />đầu sách</h2>
+                      <p>Free Pickup and Delivery Available</p>
+                      <a routerLink="/product" class="primary-btn">SHOP NOW</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-title">
+                      <h2>Sản phẩm nổi bật</h2>
+                  </div>
+              </div>
+          </div>
+          <div class="row featured__filter" >
+              <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat" *ngFor="let product of products">
+                  <div class="featured__item">
+                      <div class="featured__item__pic set-bg" style="background-image: url({{product.image}});">
+                          <ul class="featured__item__pic__hover">
+                              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                          </ul>
+                      </div>
+                      <div class="featured__item__text">
+                          <h6><a [routerLink]="['/productDetail', product._id]">{{product.name}}</a></h6>
+                          <h5>{{product.price | currency:'VND'}}</h5>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </section>
+  <!-- Featured Section End -->
+
+  <!-- Banner Begin -->
+  <div class="banner">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="banner__pic">
+                      <img src="https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2019/10/anh-bia-2-1-1068x534.jpg?fit=700%2C20000&quality=95&ssl=1" alt="">
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="banner__pic">
+                      <img src="https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2019/10/anh-bia-2-1-1068x534.jpg?fit=700%2C20000&quality=95&ssl=1" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Banner End -->
+
+  <!-- Blog Section Begin -->
+  <section class="from-blog spad">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-title from-blog__title">
+                      <h2>From The Blog</h2>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                  <div class="blog__item">
+                      <div class="blog__item__pic">
+                          <img src="/assets/client/img/blog/blog-1.jpg" alt="">
+                      </div>
+                      <div class="blog__item__text">
+                          <ul>
+                              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                              <li><i class="fa fa-comment-o"></i> 5</li>
+                          </ul>
+                          <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                          <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                  <div class="blog__item">
+                      <div class="blog__item__pic">
+                          <img src="/assets/client/img/blog/blog-2.jpg" alt="">
+                      </div>
+                      <div class="blog__item__text">
+                          <ul>
+                              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                              <li><i class="fa fa-comment-o"></i> 5</li>
+                          </ul>
+                          <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                          <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                  <div class="blog__item">
+                      <div class="blog__item__pic">
+                          <img src="/assets/client/img/blog/blog-3.jpg" alt="">
+                      </div>
+                      <div class="blog__item__text">
+                          <ul>
+                              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                              <li><i class="fa fa-comment-o"></i> 5</li>
+                          </ul>
+                          <h5><a href="#">Visit the clean farm in the US</a></h5>
+                          <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
