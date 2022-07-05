@@ -21,8 +21,7 @@ export class AdminUserFormComponent implements OnInit {
     this.userForm = new FormGroup({
       name: new FormControl('',[Validators.required]),
       email: new FormControl('',[Validators.required]),
-      password: new FormControl('',[Validators.required]),
-      role: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     })
   }
 
