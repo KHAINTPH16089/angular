@@ -5,7 +5,7 @@
 const apiUrl = 'https://nodejs-angular.vercel.app/api';
 
 export const environment = {
-  production: true,
+  production: false,
 
   product: `${apiUrl}/products`,
   category: `${apiUrl}/category`,
